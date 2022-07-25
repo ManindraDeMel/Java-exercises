@@ -41,7 +41,7 @@ Third, it helps your lecturer understand how the whole class is doing, making hi
 
 | Week | Going Well? (1-5) | Group OK? (1-5) | What I have done | What I will do | What impedes me |
 |---|:---:|:---:|---|---|---|
-| 1 ||-|||
+| 1 | Successfully installed and watched the first lecture of comp 1140 (5) |-| I've installed all the required software, watched the first lecture and read through some of the course page| Watch the next upcoming lecture and read through more of the course page| Nothing has yet arised to impede me
 | 2 ||-|||
 | 3 ||-|||
 | 4 |||||
