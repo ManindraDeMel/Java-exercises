@@ -9,6 +9,31 @@ public class Dice {
     private int lowerBound; //Lower bound added to make dice more customizable
     private int upperBound; //Maximum limit of dice roll
 
+    public Dice(int lowerBound, int upperBound){
+        this.lowerBound = lowerBound;
+        this.upperBound = upperBound;
+    }
+
+    // Adjust the bounds after dice is created
+    public void updateLowerBound(int lowerBound){
+        this.lowerBound = lowerBound;
+    }
+
+    public void updateUpperBound(int upperBound){
+        this.upperBound = upperBound;
+    }
+
+    // Find the range of the dice roll
+    public int diceRange() {
+        return upperBound - lowerBound;
+    }
+
+    // Roll the dice, resulting in random int between lower and upper bound (inclusive)
+    // e.g. a dice roll of between 1 - 3 can produce 1,2 or 3.
+    public int rollDice(){
+        return r.nextInt(this.diceRange()) + lowerBound;
+    }
+
     public static void main(String[] args) {
         //Test basic dice rolling
 
@@ -30,38 +55,13 @@ public class Dice {
 
         // Update bounds (1-10)
         unusual_dice.updateLowerBound(1);
-        unusual_dice.updateLowerBound(10);
+        unusual_dice.updateUpperBound(10);
 
         // Roll 10 times
         for (int i = 0; i < 10; i++){
             System.out.println("(5-8): " + six_sided_dice.rollDice());
             System.out.println("(1-10): " + unusual_dice.rollDice());
         }
-    }
-
-    public Dice(int lowerBound, int upperBound){
-        this.lowerBound = 1;
-        this.upperBound = upperBound;
-    }
-
-    // Adjust the bounds after dice is created
-    public void updateLowerBound(int lowerBound){
-        lowerBound = lowerBound;
-    }
-
-    public void updateUpperBound(int upperBound){
-        upperBound = upperBound;
-    }
-
-    // Find the range of the dice roll
-    public int diceRange() {
-        return lowerBound - upperBound;
-    }
-
-    // Roll the dice, resulting in random int between lower and upper bound (inclusive)
-    // e.g. a dice roll of between 1 - 3 can produce 1,2 or 3.
-    public int rollDice(){
-        return r.nextInt(this.diceRange()) + upperBound;
     }
 
 
