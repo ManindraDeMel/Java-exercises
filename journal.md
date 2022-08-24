@@ -44,8 +44,8 @@ Third, it helps your lecturer understand how the whole class is doing, making hi
 | 1 | Successfully installed and watched the first lecture of comp 1140 (5) |-| I've installed all the required software, watched the first lecture and read through some of the course page | Watch the next upcoming lecture and read through more of the course page         | Nothing has yet arised to impede me
 | 2 |            Lectures have been watched and I'm going well!!            |-| I've watched all the lectures, completed homework up to J05 and read through assignment 1                    | I will most likely attempt to start and finish assingment 1 throughout this week | Nothing impedes me as of yet.
 | 3 |                            Going well! (5)                            |-| I completed the assignment this week                                                                         | Continue lab & Homework exercises to prepare for Assignemnt and the lab test     | Nothing impedes me.
-| 4 |||||
-| 5 |||||
+| 4 | Going well (5)|Ready to meet group after lab test!| Completed all homework exercises for lab test|Ace the lab test!| Nothing as of yet
+| 5 | Everything is going well!|We've had several meetings and worked on a significant portion of the assesment (5)|I have helped complete both task D2A and D2B|I will continue to work on the assesment with my group| Nothing impedes me at the moment
 | 6 |||||
 | 7 |||||
 | 8 |||||
