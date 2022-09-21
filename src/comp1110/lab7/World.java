@@ -86,6 +86,10 @@ public class World {
                     i++;
                 }
             }
+            randomM(anyEmpty, empty);
+
+        }
+        protected void randomM(boolean anyEmpty, boolean[] empty) {
             if (anyEmpty) {
                 animals[x][y] = null;
                 int move = rand.nextInt(9);
@@ -150,7 +154,18 @@ public class World {
          * maximum hunger level of MAX_HUNGER).
          */
         void moveAndEat() {
-            // FIXME complete this method
+            if (grass[x][y] > 0) {
+                grass[x][y] -= 1;
+                if (hunger > 0) {
+                    hunger--;
+                }
+            }
+            else {
+                randomMove();
+                if (hunger < MAX_HUNGER) {
+                    hunger++;
+                }
+            }
         }
 
         @Override
@@ -167,6 +182,23 @@ public class World {
             super(x, y);
         }
 
+        private boolean[][] getRabbit() {
+            boolean[] rabbit = new boolean[9];
+            boolean anyRabbit = false;
+            int i = 0;
+            for (int dX = -1; dX <= 1; dX++) {
+                for (int dY = -1; dY <= 1; dY++) {
+                    int neighbourX = (x + dX + sizeX) % sizeX;
+                    int neighbourY = (y + dY + sizeY) % sizeY;
+                    if (animals[neighbourX][neighbourY] instanceof Rabbit) {
+                        rabbit[i] = true;
+                        anyRabbit = true;
+                    }
+                    i++;
+                }
+            }
+            return new boolean[][]{new boolean[]{anyRabbit}, rabbit};
+        }
         /**
          * Move to a neighbouring rabbit and consume it, or move at random.
          * If there are rabbits in any of the neighbouring locations, choose
@@ -178,7 +210,18 @@ public class World {
          * hunger level of MAX_HUNGER).
          */
         void moveAndEat() {
-            // FIXME complete this method
+            if (getRabbit()[0][0]) {
+                randomM(getRabbit()[0][0], getRabbit()[1]);
+                if (hunger > 0) {
+                    hunger--;
+                }
+            }
+            else {
+                randomMove();
+                if (hunger < MAX_HUNGER) {
+                    hunger++;
+                }
+            }
         }
 
         @Override
