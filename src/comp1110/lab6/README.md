@@ -89,7 +89,7 @@ Extend the your Board program to include drag-and-drop.
    Add a private instance field `board` to your `DraggableTriangle` inner class and initialize it in the constructor (i.e. `this.board = board;`).
 
 4. **Create a draggable triangle**
-
+3
    Within the `start()` method of your `Board` class, create a new `DraggableTriangle` of size 200, centered at (300, 260), and with the board (i.e. `this`) passed as the fourth argument to the constructor. Remember to add the draggable triangle to your root group.
 
    ![alt board](assets/lab5c.png)

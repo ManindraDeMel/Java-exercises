@@ -259,8 +259,22 @@ public class World {
      * @return the string representation of the current state of the world
      */
     public String getCurrentState() {
-        // FIXME 1: complete this method
-        return null;
+        String state = "";
+        for (int x = 0; x <this.sizeX; x++) {
+            for (int y = 0; y<sizeY; y++) {
+                state += String.valueOf(grass[x][y]);
+                if (animals[x][y] instanceof Rabbit) {
+                    state +="r" + String.valueOf(animals[x][y].hunger);
+                }
+                else if (animals[x][y] instanceof Fox) {
+                    state +="f" + String.valueOf(animals[x][y].hunger);
+                }
+                else {
+                    state += "  ";
+                }
+            }
+        }
+        return state;
     }
 
     /**
