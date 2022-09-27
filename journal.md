@@ -48,7 +48,7 @@ Third, it helps your lecturer understand how the whole class is doing, making hi
 | 5 |                       Everything is going well!                       | We've had several meetings and worked on a significant portion of the assesment (5) | I have helped complete both task D2A and D2B                                                                 | I will continue to work on the assesment with my group                           | Nothing impedes me at the moment
 | 6 |               Going well, up to date on the assignment                |           Group is going well we are going to recieve a new member today            | Not much this week, we've been focusing on other assesments                                                  | Most likely work on the assignment for the remainder of the week                 | Other assesments have impeded me but i think im still on schedule. 
 | 7 |                           Going well ! (5)                            |                       Group is working well on the assignment                       | I've completed my share of Task D2B and am preparing for the midsem                                          | More preperation for the mid sem                                                 | Nothing impedes me as of yet
-| 8 |||||
+| 8 |                            Going well !(5)                            |              Group is going well, Stephen worked on fixing Task 3 & 4               | I have helped Stephen and Arjun with the project and mainly Git questions                                    | Fix up task 8a                                                                   | Other assesments impede me from working on the task 8a.
 | 9 |||||
 | 10 |||||
 | 11 |||||
