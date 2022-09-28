@@ -1,9 +1,6 @@
 package comp1110.lab8;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class CropRotation {
     /**
@@ -71,10 +68,22 @@ public class CropRotation {
         List<Vegetable> used = new ArrayList<>();          // vegetables used so far in a given search
         Set<List<Vegetable>> rotations = new HashSet<>();  // rotations found so far
 
-        /* If there are no crops or no seasons or the number of seasons is
-           greater than the number of crops, return an empty list. */
+        if (crops.size() == 0 || seasons == 0 || seasons > crops.size())
+            return rotations;
 
-        return null;  // FIXME complete this method
+        if (crops.size() == 1)
+            rotations.add(crops.stream().toList());
+
+        for (Vegetable vegetable : crops) {
+            List<Vegetable> rotation = new ArrayList<>();
+
+            used.add(vegetable);
+            rotation.add(vegetable);
+            getFixedRotation(crops, seasons, used, rotations, rotation);
+            used.remove(vegetable);
+        }
+
+        return rotations;
     }
 
     /**
@@ -82,12 +91,27 @@ public class CropRotation {
      *
      * @param crops as above
      * @param seasons as above
-     * @param used crops already used (in the order in which they are used)
-     * @param rotations all rotations found so far.
      */
-    private static void getFixedRotation(Set<Vegetable> crops, int seasons, List<Vegetable> used,
-                                         Set<List<Vegetable>> rotations) {
-        // FIXME complete this method
+    private static void getFixedRotation(Set<Vegetable> crops, int seasons, List<Vegetable> used, Set<List<Vegetable>> rotations, List<Vegetable> rotation) {
+
+        List<Vegetable> rotationState = new ArrayList<>(rotation);
+
+        for (var veg : crops) {
+            if (used.contains(veg)) continue;
+
+            rotation = new ArrayList<>(rotationState);
+
+            if (canFollow(rotation.get(rotation.size()-1), veg)){
+                rotation.add(veg);
+            }
+
+            if (rotation.size() == seasons)
+                rotations.add(rotation);
+
+            used.add(veg);
+            getFixedRotation(crops, seasons, used, rotations, rotation);
+            used.remove(veg);
+        }
     }
 
     /**
@@ -98,6 +122,12 @@ public class CropRotation {
      * @return true if next can follow first
      */
     private static boolean canFollow(Vegetable first, Vegetable next) {
-        return false;  // FIXME complete this method
+        HashMap<Group, Group> vegMap = new HashMap<>(){{
+            put(Group.LEGUME, Group.BRASSICA);
+            put(Group.BRASSICA, Group.ALLIUM);
+            put(Group.ALLIUM, Group.FRUITING);
+            put(Group.FRUITING, Group.LEGUME);
+        }};
+        return vegMap.get(first.group) == next.group;
     }
 }
