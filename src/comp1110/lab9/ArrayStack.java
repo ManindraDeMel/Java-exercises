@@ -17,9 +17,9 @@ public class ArrayStack<T> {
     /**
      * @return true if the stack is empty
      */
+    T[] stack = (T[]) new Object[0];
     public boolean isEmpty() {
-        // FIXME complete this method
-        return false;
+        return this.stack.length == 0;
     }
 
     /**
@@ -29,7 +29,13 @@ public class ArrayStack<T> {
      * @param value the value to add to this stack
      */
     public void push(T value) {
-        // FIXME complete this method
+        int newLength = this.stack.length + 1;
+        T[] newStack = (T[]) new Object[newLength];
+        for (int i = 0; i < this.stack.length; i++) {
+            newStack[i] = this.stack[i];
+        }
+        newStack[newLength-1] = value;
+        this.stack = newStack;
     }
 
     /**
@@ -39,8 +45,17 @@ public class ArrayStack<T> {
      * @throws EmptyStackException if the stack is currently empty
      */
     public T pop() {
-        // FIXME complete this method
-        return null;
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        int newLength = this.stack.length - 1;
+        T[] newStack = (T[]) new Object[newLength];
+        for (int i = 0; i < newLength; i++) {
+            newStack[i] = this.stack[i];
+        }
+        T poppedElem = stack[stack.length - 1];
+        stack = newStack;
+        return poppedElem;
     }
 
     /**
@@ -51,8 +66,10 @@ public class ArrayStack<T> {
      * @throws EmptyStackException if the stack is currently empty
      */
     public T peek() {
-        // FIXME complete this method
-        return null;
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return stack[stack.length-1];
     }
 
     /**
@@ -64,7 +81,14 @@ public class ArrayStack<T> {
      * @return true if the value is contained in this stack
      */
     public boolean contains(T value) {
-        // FIXME complete this method
+        if (value == null) {
+            return false;
+        }
+        for (T i : stack) {
+            if (i.equals(value)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -79,7 +103,19 @@ public class ArrayStack<T> {
      * @return a String representation of this stack
      */
     public String toString() {
-        // FIXME complete this method
-        return null;
+        if (isEmpty()) {
+            return "";
+        }
+        String s = "";
+        for (int i = stack.length - 1; i >= 0; i--) {
+            if (i == stack.length - 1) {
+                s += stack[i].toString();
+            }
+            else {
+                s += ",";
+                s += stack[i].toString();
+            }
+        }
+        return s;
     }
 }
