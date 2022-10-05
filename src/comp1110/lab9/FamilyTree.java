@@ -29,8 +29,19 @@ public class FamilyTree {
      * <code>targetName</code>, or null if no such individual is found
      */
     public static String getAncestry(Individual ancestor, String targetName) {
-        // FIXME complete this method
-        return "";
+        if (targetName == ancestor.name) {
+            return targetName;
+        }
+        else if (ancestor.children == null) {
+            return null;
+        }
+        for (Individual child : ancestor.children) {
+            if (getAncestry(child, targetName) ==  null) {
+                continue;
+            }
+            return getAncestry(child, targetName) + " born of " + ancestor.name;
+        }
+        return null;
     }
 
     /**
